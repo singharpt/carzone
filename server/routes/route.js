@@ -1,16 +1,22 @@
 import express from "express";
 const router = express.Router();
 
-import locations from "../controllers/locations.js";
-import events from "../controllers/events.js";
+import cars from "../controllers/cars.js";
+import getAllInteriors from "../controllers/interiors.js";
+import getAllExteriors from "../controllers/exteriors.js";
+import getAllWheels from "../controllers/wheels.js";
+import getAllRoofs from "../controllers/roofs.js";
 
-/* GET all locations */
-router.get("/locations", locations);
+/* GET all static data */
+router.get("/interiors", getAllInteriors);
+router.get("/exteriors", getAllExteriors);
+router.get("/roofs", getAllRoofs);
+router.get("/wheels", getAllWheels);
+router.get("/getcars", cars.getAllCars);
 
-/* GET all events */
-router.get("/events", events.getAllEvents);
-
-/* GET all events for unique location page. */
-router.get("/events/:locationId", events.getUniqueEvents);
+/* CRUD Operations on cars */
+router.post("/createcars", cars.postCars);
+router.patch("/patchcars", cars.patchCars);
+router.delete("/deletecars", cars.deleteCars);
 
 export default router;

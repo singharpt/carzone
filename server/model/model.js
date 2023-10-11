@@ -1,22 +1,91 @@
 import pool from "../model/connect.js";
 
-const getLocations = async () => {
-  const queryString = `SELECT * FROM ${process.env.LOCATION_TABLE}`;
+const getInteriors = async () => {
+  const queryString = `SELECT * FROM ${process.env.INTERIOR_TABLE}`;
   console.log(queryString);
   const response = await pool.query(queryString);
   return response;
 };
 
-const getEvents = async () => {
-  const queryString = `SELECT * FROM ${process.env.EVENT_TABLE}`;
+const getExteriors = async () => {
+  const queryString = `SELECT * FROM ${process.env.EXTERIOR_TABLE}`;
+  console.log(queryString);
   const response = await pool.query(queryString);
   return response;
 };
 
-const getUniqueEvents = async (locationId) => {
-  const queryString = `SELECT * FROM ${process.env.EVENT_TABLE} where location='${locationId}'`;
+const getWheels = async () => {
+  const queryString = `SELECT * FROM ${process.env.WHEELS_TABLE}`;
+  console.log(queryString);
   const response = await pool.query(queryString);
   return response;
 };
 
-export default { getLocations, getEvents, getUniqueEvents };
+const getRoofs = async () => {
+  const queryString = `SELECT * FROM ${process.env.ROOFS_TABLE}`;
+  const response = await pool.query(queryString);
+  return response;
+};
+
+const getCars = async () => {
+  const queryString = `SELECT * FROM ${process.env.CARS_TABLE}`;
+  const response = await pool.query(queryString);
+  return response;
+};
+
+const postCars = async (carsData) => {
+  const insertQuery = {
+    text: `INSERT INTO ${process.env.CARS_TABLE} (id, name, exterior, interior, roof, wheel, price, isconvertible) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+  };
+
+  const values = [
+    carsData.id,
+    carsData.name,
+    carsData.exterior,
+    carsData.interior,
+    carsData.roof,
+    carsData.wheel,
+    carsData.price,
+    carsData.isconvertible,
+  ];
+
+  const response = await pool.query(insertQuery, values);
+  return response;
+};
+
+const patchCars = async (carsData) => {
+  const updateQuery = {
+    text: `UPDATE ${process.env.CARS_TABLE} SET name=$1, exterior=$2, interior=$3, roof=$4, wheel=$5, price=$6, isconvertible=$7 WHERE id=$8`,
+  };
+
+  const values = [
+    carsData.name,
+    carsData.exterior,
+    carsData.interior,
+    carsData.roof,
+    carsData.wheel,
+    carsData.price,
+    carsData.isconvertible,
+    carsData.id,
+  ];
+
+  const response = await pool.query(updateQuery, values);
+  return response;
+};
+
+const deleteCars = async (id) => {
+  const deleteString = `DELETE FROM ${process.env.CARS_TABLE} WHERE id=$1`;
+  const response = await pool.query(deleteString, [id]);
+  return response;
+};
+
+export default {
+  getInteriors,
+  getExteriors,
+  getWheels,
+  getRoofs,
+  getCars,
+  postCars,
+  patchCars,
+  deleteCars,
+};

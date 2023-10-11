@@ -4,7 +4,7 @@ import carzoneData from "./data.js";
 const seedInteriorsTable = async () => {
   carzoneData.interiors.forEach((interior) => {
     const insertQuery = {
-      text: "INSERT INTO interiors (id, color, image, price, iscombo) VALUES ($1, $2, $3, $4, $5)",
+      text: `INSERT INTO ${process.env.INTERIOR_TABLE} (id, color, image, price, iscombo) VALUES ($1, $2, $3, $4, $5)`,
     };
 
     const values = [
@@ -28,7 +28,7 @@ const seedInteriorsTable = async () => {
 const seedExteriorsTable = async () => {
   carzoneData.exteriors.forEach((exterior) => {
     const insertQuery = {
-      text: "INSERT INTO exteriors (id, color, image, price) VALUES ($1, $2, $3, $4)",
+      text: `INSERT INTO ${process.env.EXTERIOR_TABLE}  (id, color, image, price) VALUES ($1, $2, $3, $4)`,
     };
 
     const values = [
@@ -51,7 +51,7 @@ const seedExteriorsTable = async () => {
 const seedWheelsTable = async () => {
   carzoneData.wheels.forEach((wheel) => {
     const insertQuery = {
-      text: "INSERT INTO wheels (id, color, image, price) VALUES ($1, $2, $3, $4)",
+      text: `INSERT INTO ${process.env.WHEELS_TABLE}  (id, color, image, price) VALUES ($1, $2, $3, $4)`,
     };
 
     const values = [wheel.id, wheel.color, wheel.image, wheel.price];
@@ -69,7 +69,7 @@ const seedWheelsTable = async () => {
 const seedRoofsTable = async () => {
   carzoneData.roofs.forEach((roof) => {
     const insertQuery = {
-      text: "INSERT INTO roofs (id, color, image, price, isconvertible) VALUES ($1, $2, $3, $4, $5)",
+      text: `INSERT INTO ${process.env.ROOFS_TABLE} (id, color, image, price, isconvertible) VALUES ($1, $2, $3, $4, $5)`,
     };
 
     const values = [
@@ -93,7 +93,7 @@ const seedRoofsTable = async () => {
 const seedCarsTable = async () => {
   carzoneData.cars.forEach((car) => {
     const insertQuery = {
-      text: "INSERT INTO cars (id, name, exterior, interior, roof, wheel, price, isconvertible) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+      text: `INSERT INTO ${process.env.CARS_TABLE} (id, name, exterior, interior, roof, wheel, price, isconvertible) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
     };
 
     const values = [

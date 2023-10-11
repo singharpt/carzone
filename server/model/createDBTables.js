@@ -2,9 +2,9 @@ import pool from "./connect.js";
 
 const createCarzoneTables = async () => {
   const createInteriorsTableQuery = `
-    DROP TABLE IF EXISTS interiors;
+    DROP TABLE IF EXISTS ${process.env.INTERIOR_TABLE};
 
-    CREATE TABLE IF NOT EXISTS interiors (
+    CREATE TABLE IF NOT EXISTS ${process.env.INTERIOR_TABLE} (
       id SERIAL PRIMARY KEY,
       color VARCHAR(255) NOT NULL,
       image TEXT NOT NULL,
@@ -14,9 +14,9 @@ const createCarzoneTables = async () => {
   `;
 
   const createExteriorsTableQuery = `
-    DROP TABLE IF EXISTS exteriors;
+    DROP TABLE IF EXISTS ${process.env.EXTERIOR_TABLE};
 
-    CREATE TABLE IF NOT EXISTS exteriors (
+    CREATE TABLE IF NOT EXISTS ${process.env.EXTERIOR_TABLE} (
       id SERIAL PRIMARY KEY,
       color VARCHAR(255) NOT NULL,
       image TEXT NOT NULL,
@@ -25,9 +25,9 @@ const createCarzoneTables = async () => {
   `;
 
   const createWheelsTableQuery = `
-    DROP TABLE IF EXISTS wheels;
+    DROP TABLE IF EXISTS ${process.env.WHEELS_TABLE};
 
-    CREATE TABLE IF NOT EXISTS wheels (
+    CREATE TABLE IF NOT EXISTS ${process.env.WHEELS_TABLE} (
       id SERIAL PRIMARY KEY,
       color VARCHAR(255) NOT NULL,
       image TEXT NOT NULL,
@@ -36,9 +36,9 @@ const createCarzoneTables = async () => {
   `;
 
   const createRoofsTableQuery = `
-    DROP TABLE IF EXISTS roofs;
+    DROP TABLE IF EXISTS ${process.env.ROOFS_TABLE};
 
-    CREATE TABLE IF NOT EXISTS roofs (
+    CREATE TABLE IF NOT EXISTS ${process.env.ROOFS_TABLE} (
       id SERIAL PRIMARY KEY,
       color VARCHAR(255) NOT NULL,
       image TEXT NOT NULL,
@@ -48,9 +48,9 @@ const createCarzoneTables = async () => {
   `;
 
   const createCarsTableQuery = `
-    DROP TABLE IF EXISTS cars;
+    DROP TABLE IF EXISTS ${process.env.CARS_TABLE};
 
-    CREATE TABLE IF NOT EXISTS cars (
+    CREATE TABLE IF NOT EXISTS ${process.env.CARS_TABLE} (
       id SERIAL PRIMARY KEY,
       name VARCHAR(255) NOT NULL,
       exterior INTEGER,
