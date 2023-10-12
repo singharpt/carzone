@@ -20,7 +20,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use("/", router);
+app.use("/api", router);
 app.use(cors(corsOptions));
 app.use("*", (req, res) => res.status(404).send("404 page not available"));
 
