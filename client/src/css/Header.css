@@ -1,0 +1,28 @@
+.icon-button {
+  color: white;
+}
+
+/* Animation for shaking and magnifying effect */
+.icon-button:hover svg {
+  animation: shakeAndMagnify 0.9s ease infinite alternate;
+}
+
+@keyframes shakeAndMagnify {
+  0%,
+  100% {
+    transform: translateX(0) scale(1.2);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px) scale(1.5);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px) scale(1.5);
+  }
+}

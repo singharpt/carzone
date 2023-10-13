@@ -1,12 +1,68 @@
 .app {
-    background: url('./assets/background.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    width: 100vw;
-    height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    padding-bottom: 50px;
+  background: url("./assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-bottom: 50px;
+  color: white;
+}
+
+.lander {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.lander-heading {
+  text-align: center;
+  font-size: 45px;
+  letter-spacing: 2px;
+}
+
+.lander-heading-h1 {
+  padding-top: 5rem;
+  margin: auto 0;
+  font-weight: bold;
+  color: white;
+}
+
+.lander-heading-h1-span {
+  color: #f36a21;
+  font-weight: bold;
+  font-size: 45px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 40px;
+}
+/* .lander-heading-h1-span:hover {
+  background-color: white;
+  border: white;
+} */
+
+.lander-button {
+  display: flex;
+  gap: 100px;
+  margin-top: 100px;
+}
+
+.lander-button Button {
+  padding: 15px;
+  font-size: 25px;
+  font-weight: 500;
+  border-color: #f36a21;
+  border-radius: 40px;
+  color: #f36a21;
+  transition: background-color 0.3s ease;
+}
+
+.lander-button button:hover {
+  background-color: white;
+  border: white;
 }

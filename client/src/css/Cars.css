@@ -1,57 +1,42 @@
 .car-information {
   width: 100%;
   height: 350px;
-  padding: 0px;
+  padding: 20px;
   margin: 20px;
   border: 2px solid white;
-  border-radius: 0px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
-.car-information img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.car-name {
+  padding: 20px;
+  align-items: flex-start;
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
-.car-information-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 100%;
-  right: 0;
-  background-color: var(--primary);
-  overflow: hidden;
-  width: 0;
-  height: 100%;
-  transition: 0.5s ease;
-}
-
-.car-information:hover .event-information-overlay {
-  width: 100%;
-  left: 0;
-}
-
-.text {
-  position: absolute;
-  overflow: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-}
-
-.text i {
-  margin-right: 10px;
-}
-
-.text p {
-  color: white;
-  margin-top: 10px;
-}
-
-.negative-time-remaining {
-  background-color: red;
-  color: white;
-  font-weight: 700;
+.car-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 10px;
-  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.car-parts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  margin-left: 100px;
+}
+
+.car-price {
+  margin-right: 50px;
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
 }
