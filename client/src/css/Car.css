@@ -1,9 +1,9 @@
 .car-main {
   width: 100%;
-  max-width: 1200px; /* Set a max width to ensure it doesn't get too wide */
-  margin: 0 auto; /* Center the box horizontally */
+  max-width: 1200px;
+  margin: 0 auto;
   background-color: black;
-  border: 2px solid white; /* Use "border" for the border style */
+  border: 2px solid white;
   border-radius: 20px;
   color: white;
   display: flex;
@@ -17,23 +17,42 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 1; /* Take up remaining available space */
+  max-width: 400px;
 }
 
 .car-info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
 }
 
-.car-info div {
-  margin: 5px 0; /* Add spacing between name and price */
+.car-label {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.car-label input {
+  background-color: white;
+  color: black;
+  font-size: 25px;
+  font-weight: 600;
+  height: 50px;
+  text-transform: uppercase;
+}
+
+.car-info p {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .car-actions {
+  margin-top: 20px;
   display: flex;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .car-parts {
@@ -44,8 +63,8 @@
 }
 
 .car-parts img {
-  width: 300px; /* Make sure images fill their grid cells */
-  height: auto; /* Maintain aspect ratio */
+  width: 320px; /* Make sure images fill their grid cells */
+  height: 120px; /* Maintain aspect ratio */
   border-radius: 10px;
 }
 

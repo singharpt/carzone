@@ -7,11 +7,11 @@ function Parts(props) {
   const { getStates, updateStates } = useContext(MyContext);
   const dataToShow = getStates(props.stateKey);
 
-  const [part, setPart] = useState(null);
-
   const highlightItem = (id) => {
+    props.display();
+    props.parts(props.stateKey, id);
+    props.price();
     console.log(id);
-    setPart(id);
   };
 
   return (
@@ -36,7 +36,7 @@ function Parts(props) {
             );
           })}
       </div>
-      <div className="parts-buttons">
+      {/* <div className="parts-buttons">
         <Button
           onClick={props.display}
           style={{
@@ -63,7 +63,7 @@ function Parts(props) {
         >
           CANCEL
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 }
