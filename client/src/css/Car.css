@@ -1,0 +1,67 @@
+.car-main {
+  width: 100%;
+  max-width: 1200px; /* Set a max width to ensure it doesn't get too wide */
+  margin: 0 auto; /* Center the box horizontally */
+  background-color: black;
+  border: 2px solid white; /* Use "border" for the border style */
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px; /* Add some padding for spacing */
+}
+
+.car-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1; /* Take up remaining available space */
+}
+
+.car-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.car-info div {
+  margin: 5px 0; /* Add spacing between name and price */
+}
+
+.car-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.car-parts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 20px; /* Reduce the gap between images */
+  justify-content: center; /* Center align the images in b2 */
+}
+
+.car-parts img {
+  width: 300px; /* Make sure images fill their grid cells */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px;
+}
+
+/* Style for buttons */
+.car-actions button {
+  min-width: 150px;
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+.car-actions button button:hover {
+  color: white;
+}
