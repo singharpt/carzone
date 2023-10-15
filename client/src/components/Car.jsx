@@ -19,6 +19,7 @@ function Car() {
 
   const updateParts = (key, value) => {
     setParts((prevState) => ({ ...prevState, [key]: value }));
+    updatePrice();
   };
 
   const [parts, setParts] = useState({
@@ -29,6 +30,7 @@ function Car() {
     exteriorState: -1,
     wheelState: -1,
     roofState: -1,
+    converState: false,
   });
 
   useEffect(() => {
@@ -61,6 +63,10 @@ function Car() {
             carInfo?.exterior === undefined ? -1 : carInfo.exterior,
           wheelState: carInfo?.wheel === undefined ? -1 : carInfo.wheel,
           roofState: carInfo?.roof === undefined ? -1 : carInfo.roof,
+          converState:
+            carInfo?.isconvertible === undefined
+              ? false
+              : carInfo.isconvertible,
         }));
       } catch (error) {
         console.error(error);
@@ -98,9 +104,15 @@ function Car() {
         prevParts.roofState === -1
           ? 0
           : getPartsData(getStates("roofState"), prevParts.roofState)?.price;
+      const convertiblePrice = prevParts.converState ? 20000 : 0;
 
       const totalPrice =
-        60000 + exteriorPrice + interiorPrice + wheelPrice + roofPrice;
+        60000 +
+        exteriorPrice +
+        interiorPrice +
+        wheelPrice +
+        roofPrice +
+        convertiblePrice;
 
       return {
         ...prevParts,
@@ -121,7 +133,7 @@ function Car() {
       roof: parts.roofState,
       wheel: parts.wheelState,
       price: parts.priceState,
-      isconvertible: false,
+      isconvertible: parts.converState,
     };
     const res = await crudAPI.createCars(carInfo);
     if (res.status === 200) {
@@ -138,7 +150,7 @@ function Car() {
       roof: parts.roofState,
       wheel: parts.wheelState,
       price: parts.priceState,
-      isconvertible: false,
+      isconvertible: parts.converState,
     };
     const res = await crudAPI.updateCars(carInfo);
     if (res.status === 200) {
@@ -157,16 +169,13 @@ function Car() {
 
   return (
     <div className="car-main">
-      {/* {console.log(
-        parts,
-        getPartsData(getStates("interiorState"), parts.interiorState)?.image
-      )} */}
+      {console.log(parts)}
       {options ? (
         <Parts
           stateKey={key}
-          display={hidePartsOption}
-          parts={updateParts}
-          price={updatePrice}
+          hideDisplay={hidePartsOption}
+          saveChanges={updateParts}
+          parts={parts}
         />
       ) : (
         <>
@@ -175,6 +184,7 @@ function Car() {
               <label className="car-label">
                 YOUR CAR NAME
                 <input
+                  className="car-name"
                   name="carname"
                   type="text"
                   // defaultValue={parts.nameState}
@@ -183,7 +193,18 @@ function Car() {
                     updateParts("nameState", e.target.value);
                   }}
                 />
+                <label className="car-covertible">
+                  <input
+                    type="checkbox"
+                    checked={parts.converState}
+                    onChange={() =>
+                      updateParts("converState", !parts.converState)
+                    }
+                  />
+                  : CONVERTIBLE
+                </label>
               </label>
+
               <p> PRICE : 💰 ${parts.priceState}</p>
             </div>
             <div className="car-actions">

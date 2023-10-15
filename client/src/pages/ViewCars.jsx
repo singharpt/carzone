@@ -15,27 +15,25 @@ const ViewCars = () => {
   }, []);
 
   return (
-    <div className="location-events">
-      <main>
-        <h1 style={{ textAlign: "center" }}>WELCOME TO YOUR GARAGE</h1>
-        {cars && cars.length > 0 ? (
-          cars.map((carInfo) => (
-            <Cars
-              key={carInfo.id}
-              id={carInfo.id}
-              name={carInfo.name}
-              interior={carInfo.interior}
-              exterior={carInfo.exterior}
-              wheel={carInfo.wheel}
-              roof={carInfo.roof}
-              price={carInfo.price}
-            />
-          ))
-        ) : (
-          <h2>{"No cars to display yet!"}</h2>
-        )}
-      </main>
-    </div>
+    <main className="view-cars">
+      <h1>WELCOME TO YOUR GARAGE</h1>
+      {cars && cars.length > 0 ? (
+        cars.map((carInfo) => (
+          <Cars
+            key={carInfo.id}
+            id={carInfo.id}
+            name={carInfo.name}
+            interior={carInfo.interior}
+            exterior={carInfo.exterior}
+            wheel={carInfo.wheel}
+            roof={carInfo.roof}
+            price={carInfo.price}
+          />
+        ))
+      ) : (
+        <h2>{"No cars to display yet!"}</h2>
+      )}
+    </main>
   );
 };
 

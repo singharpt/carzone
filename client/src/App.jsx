@@ -2,10 +2,10 @@ import React from "react";
 import { useRoutes } from "react-router-dom";
 import Home from "./pages/Home";
 import ViewCars from "./pages/ViewCars";
-import EditCar from "./pages/EditCar";
 import CreateCar from "./pages/CreateCar";
 import CarDetails from "./pages/CarDetails";
 import "./App.css";
+import Header from "./components/Header";
 
 const App = () => {
   let element = useRoutes([
@@ -25,15 +25,11 @@ const App = () => {
       path: "/viewcars/:id",
       element: <CarDetails title="BOLT BUCKET | View" />,
     },
-    {
-      path: "/editcar/:id",
-      element: <EditCar title="BOLT BUCKET | Edit" />,
-    },
   ]);
 
   return (
     <div className="app">
-      {/* <Header /> */}
+      <Header />
       {element}
     </div>
   );

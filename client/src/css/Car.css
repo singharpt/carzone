@@ -32,7 +32,16 @@
   letter-spacing: 1px;
 }
 
-.car-label input {
+.car-covertible {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.car-covertible input {
+  color: brown;
+}
+
+.car-name {
   background-color: white;
   color: black;
   font-size: 25px;

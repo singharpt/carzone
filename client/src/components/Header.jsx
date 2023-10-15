@@ -8,13 +8,16 @@ import "../css/Header.css";
 
 function Header() {
   return (
-    <AppBar position="static" style={{ backgroundColor: "black" }}>
+    <AppBar
+      position="static"
+      style={{ backgroundColor: "rgba(0, 0, 0, 0)", opacity: "0.8" }}
+    >
       <Toolbar>
         <Link to="/">
           <IconButton
             aria-label="home"
             className="icon-button"
-            style={{ color: "white" }}
+            style={{ color: "white", opacity: "1" }}
           >
             <HomeIcon />
           </IconButton>

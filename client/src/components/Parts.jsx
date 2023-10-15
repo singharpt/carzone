@@ -6,11 +6,9 @@ function Parts(props) {
   const { getStates, updateStates } = useContext(MyContext);
   const dataToShow = getStates(props.stateKey);
 
-  const highlightItem = (id) => {
-    props.display();
-    props.parts(props.stateKey, id);
-    props.price();
-    console.log(id);
+  const saveItem = (id) => {
+    props.hideDisplay();
+    props.saveChanges(props.stateKey, id);
   };
 
   return (
@@ -19,19 +17,28 @@ function Parts(props) {
         {dataToShow &&
           dataToShow.length > 0 &&
           dataToShow.map((item) => {
-            return (
+            return item.isconvertible === undefined ||
+              props.parts.converState === item.isconvertible ? (
               <div
                 key={item.id}
                 className="parts-item"
-                onClick={() => highlightItem(item.id)}
+                onClick={() => saveItem(item.id)}
                 style={{ backgroundImage: `url(${item.image})` }}
               >
                 <div className="part-info">
                   <p>{item.color}</p>
                   <p style={{ fontWeight: "700" }}>💵 ${item.price}</p>
-                  <p>{item?.isconvertible}</p>
+                  <p>
+                    {item.isconvertible === undefined
+                      ? ""
+                      : item.isconvertible
+                      ? "For Convertables Only"
+                      : "For Non-Convertables"}
+                  </p>
                 </div>
               </div>
+            ) : (
+              <div key={item.id}></div>
             );
           })}
       </div>
