@@ -7,7 +7,6 @@ import logger from "morgan";
 import cors from "cors";
 import http from "http";
 import router from "./routes/route.js";
-import seedDBTables from "./model/seedDBTables.js";
 
 const corsOptions = {
   origin: "http://localhost:5173",

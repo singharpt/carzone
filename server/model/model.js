@@ -35,11 +35,10 @@ const getCars = async () => {
 
 const postCars = async (carsData) => {
   const insertQuery = {
-    text: `INSERT INTO ${process.env.CARS_TABLE} (id, name, exterior, interior, roof, wheel, price, isconvertible) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+    text: `INSERT INTO ${process.env.CARS_TABLE} (name, exterior, interior, roof, wheel, price, isconvertible) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
   };
 
   const values = [
-    carsData.id,
     carsData.name,
     carsData.exterior,
     carsData.interior,
@@ -50,6 +49,7 @@ const postCars = async (carsData) => {
   ];
 
   const response = await pool.query(insertQuery, values);
+  console.log(response);
   return response;
 };
 

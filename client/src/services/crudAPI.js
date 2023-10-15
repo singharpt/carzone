@@ -1,10 +1,10 @@
 import fetch from "../utilities/fetchWrapper";
 
-const deleteCars = async (carId) => {
+const deleteCars = async (carInfo) => {
   const requestInfo = {
     URL: "/api/deletecars",
     method: "DELETE",
-    POSTDATA: carId,
+    POSTDATA: carInfo,
   };
   try {
     return await fetch(requestInfo);

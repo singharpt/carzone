@@ -7,11 +7,13 @@ import { Button } from "@mui/material";
 import "../css/Car.css";
 import Parts from "./Parts";
 import staticAPI from "../services/staticAPI";
+import crudAPI from "../services/crudAPI";
 import { MyContext } from "../components/ContextProvider";
 import getPartsData from "../utilities/getPartsData";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Car() {
+  const navigate = useNavigate();
   const { getStates, updateStates } = useContext(MyContext);
   const carId = useParams();
 
@@ -44,8 +46,10 @@ function Car() {
         updateStates("roofState", roofsResponse);
         updateStates("carState", carsResponse);
 
-        const carInfo = getPartsData(carsResponse, carId.id);
-        console.log(carsResponse, carInfo);
+        let carInfo = null;
+        if (JSON.stringify(carId) !== "{}") {
+          carInfo = getPartsData(carsResponse, carId.id);
+        }
 
         setParts((prevState) => ({
           idState: carInfo?.id === undefined ? -1 : carInfo.id,
@@ -109,12 +113,54 @@ function Car() {
     setOptions(false);
   };
 
+  const createCar = async () => {
+    const carInfo = {
+      name: parts.nameState,
+      exterior: parts.exteriorState,
+      interior: parts.interiorState,
+      roof: parts.roofState,
+      wheel: parts.wheelState,
+      price: parts.priceState,
+      isconvertible: false,
+    };
+    const res = await crudAPI.createCars(carInfo);
+    if (res.status === 200) {
+      navigate("/viewcars", { replace: true });
+    }
+  };
+
+  const saveData = async () => {
+    const carInfo = {
+      id: parts.idState,
+      name: parts.nameState,
+      exterior: parts.exteriorState,
+      interior: parts.interiorState,
+      roof: parts.roofState,
+      wheel: parts.wheelState,
+      price: parts.priceState,
+      isconvertible: false,
+    };
+    const res = await crudAPI.updateCars(carInfo);
+    if (res.status === 200) {
+      navigate("/viewcars", { replace: true });
+    }
+  };
+
+  const deleteData = async () => {
+    const carInfo = { carId: parts.idState };
+    console.log(carInfo);
+    const res = await crudAPI.deleteCars(carInfo);
+    if (res.status === 200) {
+      navigate("/viewcars", { replace: true });
+    }
+  };
+
   return (
     <div className="car-main">
-      {console.log(
+      {/* {console.log(
         parts,
         getPartsData(getStates("interiorState"), parts.interiorState)?.image
-      )}
+      )} */}
       {options ? (
         <Parts
           stateKey={key}
@@ -131,27 +177,30 @@ function Car() {
                 <input
                   name="carname"
                   type="text"
-                  defaultValue={parts.nameState}
+                  // defaultValue={parts.nameState}
+                  value={parts.nameState}
+                  onChange={(e) => {
+                    updateParts("nameState", e.target.value);
+                  }}
                 />
               </label>
               <p> PRICE : 💰 ${parts.priceState}</p>
             </div>
             <div className="car-actions">
-              {parts.idState !== -1 ? (
+              {JSON.stringify(carId) !== "{}" ? (
                 <div>
-                  <Button>Save</Button>
-                  <Button>Delete</Button>
+                  <Button onClick={saveData}>Save</Button>
+                  <Button onClick={deleteData}>Delete</Button>
                 </div>
               ) : (
                 <div>
-                  <Button>Create Car</Button>
-                  <Button>Reset</Button>
+                  <Button onClick={createCar}>Create Car</Button>
+                  {/* <Button>Reset</Button> */}
                 </div>
               )}
             </div>
           </div>
           <div className="car-parts">
-            {console.log()}
             <img
               src={
                 parts.exteriorState === -1

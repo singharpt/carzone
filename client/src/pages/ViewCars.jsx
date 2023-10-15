@@ -7,14 +7,13 @@ import staticAPI from "../services/staticAPI";
 const ViewCars = () => {
   const { getStates, updateStates } = useContext(MyContext);
   const cars = getStates("carState");
-  if (cars.length === 0) {
-    useEffect(() => {
-      (async () => {
-        const carsResponse = await staticAPI.getAllCars();
-        updateStates("carState", carsResponse);
-      })();
-    }, []);
-  }
+  useEffect(() => {
+    (async () => {
+      const carsResponse = await staticAPI.getAllCars();
+      updateStates("carState", carsResponse);
+    })();
+  }, []);
+
   return (
     <div className="location-events">
       <main>

@@ -1,7 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { MyContext } from "../components/ContextProvider";
 import "../css/Parts.css";
-import { Button } from "@mui/material";
 
 function Parts(props) {
   const { getStates, updateStates } = useContext(MyContext);
@@ -36,34 +35,6 @@ function Parts(props) {
             );
           })}
       </div>
-      {/* <div className="parts-buttons">
-        <Button
-          onClick={props.display}
-          style={{
-            color: "white",
-            width: "120px",
-            height: "50px",
-            padding: "15px",
-            borderRadius: "10px",
-            borderColor: "grey",
-          }}
-        >
-          SAVE
-        </Button>
-        <Button
-          onClick={props.display}
-          style={{
-            color: "white",
-            width: "120px",
-            height: "50px",
-            padding: "15px",
-            borderRadius: "10px",
-            borderColor: "grey",
-          }}
-        >
-          CANCEL
-        </Button>
-      </div> */}
     </div>
   );
 }

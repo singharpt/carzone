@@ -8,26 +8,6 @@ import { Button } from "@mui/material";
 import { useTypewriter } from "react-simple-typewriter";
 
 const Home = () => {
-  const { getStates, updateStates } = useContext(MyContext);
-  useEffect(() => {
-    (async () => {
-      try {
-        const interiorsResponse = await staticAPI.getAllInteriors();
-        const exteriorsResponse = await staticAPI.getAllExteriors();
-        const wheelsResponse = await staticAPI.getAllWheels();
-        const roofsResponse = await staticAPI.getAllRoofs();
-        const carsResponse = await staticAPI.getAllCars();
-        updateStates("interiorState", interiorsResponse);
-        updateStates("exteriorState", exteriorsResponse);
-        updateStates("wheelState", wheelsResponse);
-        updateStates("roofState", roofsResponse);
-        updateStates("carState", carsResponse);
-      } catch (error) {
-        throw error;
-      }
-    })();
-  }, []);
-
   const [text] = useTypewriter({
     words: [
       "View Cars",

@@ -6,7 +6,6 @@ import EditCar from "./pages/EditCar";
 import CreateCar from "./pages/CreateCar";
 import CarDetails from "./pages/CarDetails";
 import "./App.css";
-import Header from "./components/Header";
 
 const App = () => {
   let element = useRoutes([
@@ -15,7 +14,7 @@ const App = () => {
       element: <Home />,
     },
     {
-      path: "/createcar",
+      path: "/createcars",
       element: <CreateCar title="BOLT BUCKET | Customize" />,
     },
     {

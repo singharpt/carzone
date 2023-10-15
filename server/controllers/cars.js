@@ -20,8 +20,13 @@ const getAllCars = async (req, res) => {
 const postCars = async (req, res) => {
   try {
     const carsData = req.body;
-    await model.postCars(carsData);
-    res.status(200).json({ message: "Created new car successfully!" });
+    const response = await model.postCars(carsData);
+    //console.log(response);
+    if (response.rowCount > 0) {
+      res.status(200).json({ message: "Created new car successfully!" });
+    } else {
+      throw new Error("Failed to create car : ", response);
+    }
   } catch (error) {
     console.log(
       "Error while fetching all data from cars table in Postgres DB ",
@@ -34,8 +39,12 @@ const postCars = async (req, res) => {
 const patchCars = async (req, res) => {
   try {
     const carsData = req.body;
-    await model.patchCars(carsData);
-    res.status(200).json({ message: "Modified cars details successfully!" });
+    const response = await model.patchCars(carsData);
+    if (response.rowCount > 0) {
+      res.status(200).json({ message: "Modified cars details successfully!" });
+    } else {
+      throw new Error("Failed to update car");
+    }
   } catch (error) {
     console.log(
       "Error while updating target car data from cars table in Postgres DB ",
@@ -47,11 +56,16 @@ const patchCars = async (req, res) => {
 
 const deleteCars = async (req, res) => {
   try {
-    const id = req.body.id;
-    await model.deleteCars(id);
-    res
-      .status(200)
-      .json({ message: "Deleted target car details successfully!" });
+    const id = req.body.carId;
+    console.log(id);
+    const response = await model.deleteCars(id);
+    if (response.rowCount > 0) {
+      res
+        .status(200)
+        .json({ message: "Deleted target car details successfully!" });
+    } else {
+      throw new Error("Failed to delete car");
+    }
   } catch (error) {
     console.log(
       "Error while delete target car from cars table in Postgres DB ",
