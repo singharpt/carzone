@@ -29,9 +29,21 @@
 .cars-parts {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
   align-items: center;
-  margin-left: 100px;
+  justify-content: center;
+  margin-left: 70px;
+  margin-right: 30px;
+  gap: 20px;
+}
+
+.cars-parts div {
+  font-size: 22px;
+}
+
+.truncate-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cars-price {

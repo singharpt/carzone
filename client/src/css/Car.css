@@ -10,7 +10,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 40px; /* Add some padding for spacing */
+  padding: 40px;
 }
 
 .car-details {
@@ -77,7 +77,33 @@
   border-radius: 10px;
 }
 
-/* Style for buttons */
+.image-container {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.tooltip {
+  position: absolute;
+  left: 50%;
+  margin-top: 9px;
+  transform: translateX(-50%);
+  background-color: white;
+  color: #b51010;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-color: #b51010;
+  border-style: dashed;
+}
+
+.image-container:hover .tooltip {
+  opacity: 1;
+}
+
 .car-actions button {
   min-width: 150px;
   background-color: white;

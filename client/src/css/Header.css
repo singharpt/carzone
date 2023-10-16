@@ -2,7 +2,6 @@
   color: white;
 }
 
-/* Animation for shaking and magnifying effect */
 .icon-button:hover svg {
   animation: shakeAndMagnify 0.9s ease infinite alternate;
 }

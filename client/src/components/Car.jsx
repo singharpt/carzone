@@ -142,7 +142,8 @@ function Car() {
     };
     const res = await crudAPI.createCars(carInfo);
     if (res.status === 200) {
-      navigate("/viewcars", { replace: true });
+      window.location.href = "/viewcars";
+      // navigate("/viewcars", { replace: true });
     }
   };
 
@@ -159,7 +160,8 @@ function Car() {
     };
     const res = await crudAPI.updateCars(carInfo);
     if (res.status === 200) {
-      navigate("/viewcars", { replace: true });
+      window.location.href = "/viewcars";
+      // navigate("/viewcars", { replace: true });
     }
   };
 
@@ -168,7 +170,9 @@ function Car() {
     console.log(carInfo);
     const res = await crudAPI.deleteCars(carInfo);
     if (res.status === 200) {
-      navigate("/viewcars", { replace: true });
+      window.location.href = "/viewcars";
+
+      // navigate("/viewcars", { replace: true });
     }
   };
 
@@ -242,45 +246,61 @@ function Car() {
             </div>
           </div>
           <div className="car-parts">
-            <img
-              src={
-                parts.exteriorState === -1
-                  ? exterior
-                  : getPartsData(
-                      getStates("exteriorState"),
-                      parts.exteriorState
-                    )?.image
-              }
-              onClick={() => showPartsOption("exteriorState")}
-            ></img>
-            <img
-              src={
-                parts.interiorState === -1
-                  ? interior
-                  : getPartsData(
-                      getStates("interiorState"),
-                      parts.interiorState
-                    )?.image
-              }
-              onClick={() => showPartsOption("interiorState")}
-            ></img>
-            <img
-              src={
-                parts.wheelState === -1
-                  ? wheel
-                  : getPartsData(getStates("wheelState"), parts.wheelState)
-                      ?.image
-              }
-              onClick={() => showPartsOption("wheelState")}
-            ></img>
-            <img
-              src={
-                parts.roofState === -1
-                  ? roof
-                  : getPartsData(getStates("roofState"), parts.roofState)?.image
-              }
-              onClick={() => showPartsOption("roofState")}
-            ></img>
+            <div className="image-container">
+              <img
+                src={
+                  parts.exteriorState === -1
+                    ? exterior
+                    : getPartsData(
+                        getStates("exteriorState"),
+                        parts.exteriorState
+                      )?.image
+                }
+                onClick={() => showPartsOption("exteriorState")}
+              />
+              <div className="tooltip">EXTERIOR</div>
+            </div>
+
+            <div className="image-container">
+              <img
+                src={
+                  parts.interiorState === -1
+                    ? interior
+                    : getPartsData(
+                        getStates("interiorState"),
+                        parts.interiorState
+                      )?.image
+                }
+                onClick={() => showPartsOption("interiorState")}
+              />
+              <div className="tooltip">INTERIOR</div>
+            </div>
+
+            <div className="image-container">
+              <img
+                src={
+                  parts.wheelState === -1
+                    ? wheel
+                    : getPartsData(getStates("wheelState"), parts.wheelState)
+                        ?.image
+                }
+                onClick={() => showPartsOption("wheelState")}
+              />
+              <div className="tooltip">WHEEL</div>
+            </div>
+
+            <div className="image-container">
+              <img
+                src={
+                  parts.roofState === -1
+                    ? roof
+                    : getPartsData(getStates("roofState"), parts.roofState)
+                        ?.image
+                }
+                onClick={() => showPartsOption("roofState")}
+              />
+              <div className="tooltip">ROOF</div>
+            </div>
           </div>
         </>
       )}
