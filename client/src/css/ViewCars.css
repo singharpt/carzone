@@ -1,7 +1,9 @@
 .view-cars {
   justify-content: center;
   padding: 30px;
-  margin: 80px;
+  margin-top: 20px;
+  margin-left: 150px;
+  margin-right: 150px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

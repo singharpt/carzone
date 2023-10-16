@@ -12,7 +12,7 @@ const Cars = (carInfo) => {
           {" "}
           <div>💺 Interior: {carInfo.interior}</div>
           <div>🛴 Wheels: {carInfo.wheel}</div>
-          <div>😎 Roof: {carInfo.roof}</div>
+          <div>😎 Roof: {carInfo.roof !== -1 ? carInfo.roof : ""}</div>
           <div>🖌️ Exterior: {carInfo.exterior}</div>
         </div>
         <div className="cars-price">

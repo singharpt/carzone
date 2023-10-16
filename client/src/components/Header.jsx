@@ -10,7 +10,11 @@ function Header() {
   return (
     <AppBar
       position="static"
-      style={{ backgroundColor: "rgba(0, 0, 0, 0)", opacity: "0.8" }}
+      style={{
+        backgroundColor: "rgba(0, 0, 0, 0)",
+        opacity: "0.8",
+        maxWidth: "20px",
+      }}
     >
       <Toolbar>
         <Link to="/">

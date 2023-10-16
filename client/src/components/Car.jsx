@@ -22,6 +22,11 @@ function Car() {
     updatePrice();
   };
 
+  const updateCheckBox = (key, value) => {
+    updateParts(key, value);
+    updateParts("roofState", -1);
+  };
+
   const [parts, setParts] = useState({
     idState: -1,
     nameState: "",
@@ -198,7 +203,7 @@ function Car() {
                     type="checkbox"
                     checked={parts.converState}
                     onChange={() =>
-                      updateParts("converState", !parts.converState)
+                      updateCheckBox("converState", !parts.converState)
                     }
                   />
                   : CONVERTIBLE
