@@ -1,8 +1,6 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import "../App.css";
 import "../css/Navigation.css";
-import staticAPI from "../services/staticAPI";
-import { MyContext } from "../components/ContextProvider";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useTypewriter } from "react-simple-typewriter";
@@ -23,12 +21,12 @@ const Home = () => {
       <div className="lander">
         <div className="lander-heading">
           <h1 className="lander-heading-h1">
-            CARZONE <br />
-            <span className="lander-heading-h1-span">
+            <span className="website-name">CARZONE</span> <br />
+            {/* <span className="animated-text">
               {"<"}
               {text}
               {" />"}
-            </span>
+            </span> */}
           </h1>
         </div>
         <div className="lander-button">

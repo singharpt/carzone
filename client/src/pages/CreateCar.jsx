@@ -7,9 +7,10 @@ const CreateCar = () => {
     <div
       style={{
         display: "flex",
-        justifyContent: "center" /* Horizontally center content */,
-        alignItems: "center" /* Vertically center content */,
-        height: "100vh" /* 100% of the viewport height */,
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        marginTop: "-100px",
       }}
     >
       <Car />

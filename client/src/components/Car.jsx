@@ -215,12 +215,27 @@ function Car() {
             <div className="car-actions">
               {JSON.stringify(carId) !== "{}" ? (
                 <div>
-                  <Button onClick={saveData}>Save</Button>
-                  <Button onClick={deleteData}>Delete</Button>
+                  <Button
+                    onClick={saveData}
+                    style={{ backgroundColor: "darkred", color: "white" }}
+                  >
+                    Save
+                  </Button>
+                  <Button
+                    onClick={deleteData}
+                    style={{ backgroundColor: "darkred", color: "white" }}
+                  >
+                    Delete
+                  </Button>
                 </div>
               ) : (
                 <div>
-                  <Button onClick={createCar}>Create Car</Button>
+                  <Button
+                    onClick={createCar}
+                    style={{ backgroundColor: "darkred", color: "white" }}
+                  >
+                    Create Car
+                  </Button>
                   {/* <Button>Reset</Button> */}
                 </div>
               )}
