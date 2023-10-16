@@ -57,7 +57,7 @@
 }
 
 .car-actions {
-  margin-top: 20px;
+  margin-top: 15px;
   display: flex;
   width: 100%;
   justify-content: space-evenly;
@@ -66,14 +66,14 @@
 
 .car-parts {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  gap: 20px; /* Reduce the gap between images */
-  justify-content: center; /* Center align the images in b2 */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
 }
 
 .car-parts img {
-  width: 320px; /* Make sure images fill their grid cells */
-  height: 120px; /* Maintain aspect ratio */
+  width: 300px;
+  height: 140px;
   border-radius: 10px;
 }
 
