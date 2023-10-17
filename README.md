@@ -36,7 +36,9 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://github.com/singharpt/carzone/blob/main/walkthrough_screenshit.png' title='Video Walkthrough Screenshot' width='' alt='Video Walkthrough' />
+<a href="https://jumpshare.com/s/c34xWWRRpAQ8zTht5Nz9">
+  <img src="https://github.com/singharpt/carzone/raw/main/walkthrough_screenshot.png" title="Video Walkthrough Screenshot" alt="Video Walkthrough" />
+</a>
 
 <!-- Replace this with whatever GIF tool you used! -->
 
