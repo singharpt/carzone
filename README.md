@@ -30,7 +30,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] Have optimised the data flow in such a way that I am reusing the fetched data on different pages instead of fetching data from server again & again.!
+- [x] I simplified the flow of the website, making it more easier for the end user to interpret and understand.
 
 ## Video Walkthrough (Click on the image to watch video)
 
