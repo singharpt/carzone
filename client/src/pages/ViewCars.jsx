@@ -16,20 +16,6 @@ const ViewCars = () => {
     roofs: getStates("roofState"),
   };
 
-  const [parts, setParts] = useState({
-    interiorColor: null,
-    exteriorColor: null,
-    wheelColor: null,
-    roofColor: null,
-  });
-
-  const updateParts = (key, array, value) => {
-    setParts((prevParts) => ({
-      ...prevParts,
-      [key]: getPartsData(array, value)?.color,
-    }));
-  };
-
   useEffect(() => {
     (async () => {
       const carsResponse = await staticAPI.getAllCars();
@@ -60,14 +46,27 @@ const ViewCars = () => {
             key={carInfo.id}
             id={carInfo.id}
             name={carInfo.name}
-            interior={carInfo.interior}
-            exterior={carInfo.exterior}
-            wheel={carInfo.wheel}
-            roof={carInfo.roof}
+            interior={
+              carInfo.interior === -1
+                ? carInfo.interior
+                : getPartsData(globalStates.interiors, carInfo.interior)?.color
+            }
+            exterior={
+              carInfo.exterior === -1
+                ? carInfo.exterior
+                : getPartsData(globalStates.exteriors, carInfo.exterior)?.color
+            }
+            wheel={
+              carInfo.wheel === -1
+                ? carInfo.wheel
+                : getPartsData(globalStates.wheels, carInfo.wheel)?.color
+            }
+            roof={
+              carInfo.roof === -1
+                ? carInfo.roof
+                : getPartsData(globalStates.roofs, carInfo.roof)?.color
+            }
             price={carInfo.price}
-            updateParts={updateParts}
-            globalStates={globalStates}
-            parts={parts}
           />
         ))
       ) : (

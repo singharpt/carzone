@@ -142,8 +142,7 @@ function Car() {
     };
     const res = await crudAPI.createCars(carInfo);
     if (res.status === 200) {
-      window.location.href = "/viewcars";
-      // navigate("/viewcars", { replace: true });
+      navigate("/viewcars", { replace: true });
     }
   };
 
@@ -160,8 +159,7 @@ function Car() {
     };
     const res = await crudAPI.updateCars(carInfo);
     if (res.status === 200) {
-      window.location.href = "/viewcars";
-      // navigate("/viewcars", { replace: true });
+      navigate("/viewcars", { replace: true });
     }
   };
 
@@ -170,9 +168,7 @@ function Car() {
     console.log(carInfo);
     const res = await crudAPI.deleteCars(carInfo);
     if (res.status === 200) {
-      window.location.href = "/viewcars";
-
-      // navigate("/viewcars", { replace: true });
+      navigate("/viewcars", { replace: true });
     }
   };
 
@@ -196,7 +192,6 @@ function Car() {
                   className="car-name"
                   name="carname"
                   type="text"
-                  // defaultValue={parts.nameState}
                   value={parts.nameState}
                   onChange={(e) => {
                     updateParts("nameState", e.target.value);
@@ -240,7 +235,6 @@ function Car() {
                   >
                     Create Car
                   </Button>
-                  {/* <Button>Reset</Button> */}
                 </div>
               )}
             </div>
