@@ -4,7 +4,7 @@ import wheel from "../assets/wheel.png";
 import roof from "../assets/roof.png";
 import exterior from "../assets/exterior.png";
 import { Button } from "@mui/material";
-import "../css/Car.css";
+import "../css/CarForm.css";
 import Parts from "./Parts";
 import staticAPI from "../services/staticAPI";
 import crudAPI from "../services/crudAPI";

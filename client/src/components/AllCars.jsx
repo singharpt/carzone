@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../css/Cars.css";
+import "../css/AllCars.css";
 import { Button } from "@mui/material";
 
 const AllCars = (carInfo) => {
