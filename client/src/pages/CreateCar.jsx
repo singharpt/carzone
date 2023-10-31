@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import Car from "../components/Car";
+import CarForm from "../components/CarForm";
 
 const CreateCar = () => {
   return (
@@ -13,7 +13,7 @@ const CreateCar = () => {
         marginTop: "-100px",
       }}
     >
-      <Car />
+      <CarForm />
     </div>
   );
 };

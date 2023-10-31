@@ -1,8 +1,8 @@
 import React from "react";
 import "../App.css";
-import Car from "../components/Car";
+import CarForm from "../components/CarForm";
 
-const CarDetails = () => {
+const EditCar = () => {
   return (
     <div
       style={{
@@ -13,9 +13,9 @@ const CarDetails = () => {
         marginTop: "-100px",
       }}
     >
-      <Car />
+      <CarForm />
     </div>
   );
 };
 
-export default CarDetails;
+export default EditCar;

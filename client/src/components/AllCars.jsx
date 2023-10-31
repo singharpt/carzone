@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import "../css/Cars.css";
 import { Button } from "@mui/material";
-import { useState } from "react";
 
-const Cars = (carInfo) => {
-  const detailURL = `/viewcars/${carInfo.id}`;
+const AllCars = (carInfo) => {
+  const detailURL = `/editcars/${carInfo.id}`;
 
   return (
     <article className="cars-information">
@@ -48,4 +47,4 @@ const Cars = (carInfo) => {
   );
 };
 
-export default Cars;
+export default AllCars;

@@ -3,7 +3,7 @@ import { useRoutes } from "react-router-dom";
 import Home from "./pages/Home";
 import ViewCars from "./pages/ViewCars";
 import CreateCar from "./pages/CreateCar";
-import CarDetails from "./pages/CarDetails";
+import EditCar from "./pages/EditCar";
 import "./App.css";
 import Header from "./components/Header";
 
@@ -22,8 +22,8 @@ const App = () => {
       element: <ViewCars title="CARZONE | View Cars" />,
     },
     {
-      path: "/viewcars/:id",
-      element: <CarDetails title="CARZONET | Edit Car" />,
+      path: "/editcars/:id",
+      element: <EditCar title="CARZONET | Edit Car" />,
     },
   ]);
 

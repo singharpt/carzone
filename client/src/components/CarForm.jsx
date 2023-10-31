@@ -8,11 +8,11 @@ import "../css/Car.css";
 import Parts from "./Parts";
 import staticAPI from "../services/staticAPI";
 import crudAPI from "../services/crudAPI";
-import { MyContext } from "../components/ContextProvider";
+import { MyContext } from "./ContextProvider";
 import getPartsData from "../utilities/getPartsData";
 import { useNavigate, useParams } from "react-router-dom";
 
-function Car() {
+function CarForm() {
   const navigate = useNavigate();
   const { getStates, updateStates } = useContext(MyContext);
   const carId = useParams();
@@ -302,4 +302,4 @@ function Car() {
   );
 }
 
-export default Car;
+export default CarForm;

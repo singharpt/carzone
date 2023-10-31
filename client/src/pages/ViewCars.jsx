@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import Cars from "../components/Cars";
+import AllCars from "../components/AllCars";
 import "../css/ViewCars.css";
 import { MyContext } from "../components/ContextProvider";
 import staticAPI from "../services/staticAPI";
@@ -42,7 +42,7 @@ const ViewCars = () => {
       )}
       {globalStates.cars && globalStates.cars.length > 0 ? (
         globalStates.cars.map((carInfo) => (
-          <Cars
+          <AllCars
             key={carInfo.id}
             id={carInfo.id}
             name={carInfo.name}
